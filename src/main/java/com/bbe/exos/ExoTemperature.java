@@ -23,8 +23,8 @@ public class ExoTemperature {
 		List<Double> absTemperatures = getAbsoluteValues(temperatureList);
 
 		Collections.sort(absTemperatures);
-
-		return temperatureList.contains(absTemperatures.get(0)) ? absTemperatures.get(0) : - absTemperatures.get(0);
+		Double t = absTemperatures.get(0);
+		return temperatureList.contains(t) ? t : - t;
 	}
 
 	private static List<Double> getAbsoluteValues(List<Double> temperatureList) {
