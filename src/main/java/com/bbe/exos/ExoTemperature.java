@@ -1,27 +1,62 @@
-
 package com.bbe.exos;
 
 import java.util.*;
-import java.util.stream.Collectors;
+import java.util.stream.*;
 
 public class ExoTemperature {
-	private static List<Double> temperatureList;
-
+	
 	public static double closestToZero(double[] temperatureArray) {
-		temperatureList = toList(temperatureArray);
-		return tableauVide(temperatureArray) ? 0 : getAbsoluteOfClosestToZero();
+		return testTableauVide(temperatureArray) ? 0 : getClosestToZero(temperatureArray);
 	}
 
-	private static boolean tableauVide(double[] temperatureArray) {
+	private static List<Double> ChangetoList(double[] temperatureArray) {
+		List<Double> temperatureList = Arrays.stream(temperatureArray).boxed().collect(Collectors.toList());
+		return temperatureList;
+	}
+	
+	private static boolean testTableauVide(double[] temperatureArray) {
 		return temperatureArray.length==0;
 	}
 
-	private static double getAbsoluteOfClosestToZero() {
-		Collections.sort(temperatureList);
-		return temperatureList.get(0);
+	private static double getClosestToZero(double[] temperatureArray) {
+		List<Double> temperatureList = ChangetoList(temperatureArray);
+		List<Double> absTemperatures = getAbsoluteValues(temperatureList);
+
+		Collections.sort(absTemperatures);
+
+		return temperatureList.contains(absTemperatures.get(0)) ? absTemperatures.get(0) : - absTemperatures.get(0);
 	}
 
-	private static List<Double> toList(double[] temperatureArray) {
-		return Arrays.stream(temperatureArray).boxed().collect(Collectors.toList());
+	private static List<Double> getAbsoluteValues(List<Double> temperatureList) {
+		List<Double> temperatureAbs = new ArrayList<>();
+		
+		for (Double temperatures : temperatureList) {
+			temperatureAbs.add(Math.abs(temperatures));
+		}
+		return temperatureAbs;
 	}
+
 }
+
+//private static final double TEMPERATURE_MIN = -273.15;
+//private static final double TEMPERATURE_MAX = 15_000_000;
+
+/*
+private static Predicate<Double> temperaturePredicate(double temperatureToReturn) {
+    return p -> p > TEMPERATURE_MIN && p < TEMPERATURE_MAX;
+//    return p -> p.getAge() > 21 && p.getGender().equalsIgnoreCase("M");
+}
+private static <T> ArrayList<T> getArrayListFromStream(Stream<T> stream){ 
+	List<T> list = stream.collect(Collectors.toList()); 
+	ArrayList<T> arrayList = new ArrayList<T>(list); 
+	return arrayList; 
+} 
+*/
+
+/*
+Stream<Double> temperatureStream = temperatureList.stream().skip(1).filter(temperaturePredicate(temperatureToReturn));
+
+// Convert Stream to ArrayList
+ArrayList<Double> arrayList = getArrayListFromStream(temperatureStream); 
+System.out.println(arrayList);
+*/

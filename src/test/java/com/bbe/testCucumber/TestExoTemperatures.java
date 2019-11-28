@@ -33,4 +33,10 @@ public class TestExoTemperatures {
 		double[] t = {-1,2,-4};
 		Assert.assertTrue("Expected -1/"+ExoTemperature.closestToZero(t),ExoTemperature.closestToZero(t)==-1);
 	}
+	
+	@Test
+	public void testMoins1et2et1() {
+		double[] t = {-1,2,1};
+		Assert.assertTrue("Expected 1/"+ExoTemperature.closestToZero(t),ExoTemperature.closestToZero(t)==1);
+	}
 }
