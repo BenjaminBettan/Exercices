@@ -1,4 +1,4 @@
-package com.bbe.exos;
+package com.bbe.exos.exosInit;
 import java.util.*;
 import java.util.stream.Collectors;
 

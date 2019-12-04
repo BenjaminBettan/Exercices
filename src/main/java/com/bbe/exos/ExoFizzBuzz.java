@@ -3,7 +3,13 @@ package com.bbe.exos;
 public class ExoFizzBuzz {
 	
 	public static String generate(int value) {
-		return testMultiple15(value) ? "FizzBuzz" : testMultiple3(value) ? "Fizz" : testMultiple5(value) ? "Buzz" : Integer.toString(value);
+		
+		StringBuilder sb = new StringBuilder();
+		
+		for (int i = 1; i <= value; i++) {
+			sb.append(testMultiple15(i) ? " FizzBuzz" : testMultiple3(i) ? " Fizz" : testMultiple5(i) ? " Buzz" : " " + Integer.toString(i));
+		}
+		return sb.substring(1);
 	}
 
 	private static boolean testMultiple5(int value) {

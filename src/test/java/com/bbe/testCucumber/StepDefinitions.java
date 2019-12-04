@@ -7,9 +7,9 @@ import java.util.stream.Stream;
 
 import org.junit.Assert;
 
-import com.bbe.exos.SolutionExercice1;
-import com.bbe.exos.SolutionExercice2;
-import com.bbe.exos.SolutionExercice3;
+import com.bbe.exos.exosInit.SolutionExercice1;
+import com.bbe.exos.exosInit.SolutionExercice2;
+import com.bbe.exos.exosInit.SolutionExercice3;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
