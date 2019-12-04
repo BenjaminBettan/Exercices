@@ -1,11 +1,18 @@
 package com.bbe.testCucumber;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 import org.junit.Assert;
 
-import com.bbe.exos.*;
+import com.bbe.exos.SolutionExercice1;
+import com.bbe.exos.SolutionExercice2;
+import com.bbe.exos.SolutionExercice3;
 
-import java.util.*;
-import cucumber.api.java.en.*;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 
 public class StepDefinitions {
 	
@@ -23,13 +30,9 @@ public class StepDefinitions {
 	 * @return
 	 */
 	private List<Integer> parseString(String str){
-		List<Integer> array2 = new ArrayList<Integer>();
-		String[] strArray = str.split(",");
-		for (String string : strArray) {
-			array2.add(Integer.parseInt(string));
-		}
-		
-		return array2;
+		return Stream.of(str.split(","))
+	      .map (elem -> Integer.parseInt(new String(elem)))
+	      .collect(Collectors.toList());
 	}
 	
 	//exo1
