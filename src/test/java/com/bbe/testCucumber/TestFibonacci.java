@@ -34,4 +34,25 @@ public class TestFibonacci {
 		Assert.assertTrue("Expected " + expected +"/"+ExoFibonacci.getFibonacciSuite(depth),ExoFibonacci.getFibonacciSuite(depth)==expected);
 	}
 	
+	@Test
+	public void test4retourne10() {
+		int depth = 4;
+		int expected = 10;
+		Assert.assertTrue("Expected " + expected +"/"+ExoFibonacci.getFibonacciSuite(depth),ExoFibonacci.getFibonacciSuite(depth)==expected);
+	}
+	
+	@Test
+	public void test5retourne15() {
+		int depth = 4;
+		int expected = 10;
+		Assert.assertTrue("Expected " + expected +"/"+ExoFibonacci.getFibonacciSuite(depth),ExoFibonacci.getFibonacciSuite(depth)==expected);
+	}
+
+	@Test
+	public void test6retourne21() {
+		int depth = 6;
+		int expected = 21;
+		Assert.assertTrue("Expected " + expected +"/"+ExoFibonacci.getFibonacciSuite(depth),ExoFibonacci.getFibonacciSuite(depth)==expected);
+	}
+	
 }
