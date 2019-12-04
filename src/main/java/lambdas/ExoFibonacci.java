@@ -1,16 +1,9 @@
 package lambdas;
 
-import java.util.*;
-import java.util.stream.*;
+import java.util.stream.Stream;
 
 public class ExoFibonacci {
-	
-	public static String getFibonacciSuite(int depth) {
-		if (depth==0) {
-			return "1\n";
-		}
-		else {
-			return "1\n2";
-		}
+	public static int getFibonacciSuite(int depth) {
+		return depth==0 ? 1 : Stream.iterate(1, i->i+1).limit(depth).reduce(0, (a,b) -> a+b);
 	}
 }

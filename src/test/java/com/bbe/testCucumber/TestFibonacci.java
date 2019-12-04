@@ -1,10 +1,7 @@
 package com.bbe.testCucumber;
 
 import org.junit.jupiter.api.Test;
-
 import lambdas.ExoFibonacci;
-import lambdas.ExoTemperatureLambda;
-
 import org.junit.Assert;
 
 public class TestFibonacci {
@@ -12,12 +9,29 @@ public class TestFibonacci {
 	@Test
 	public void test0retourne1() {
 		int depth = 0;
-		Assert.assertTrue("Expected 1\n/"+ExoFibonacci.getFibonacciSuite(depth),ExoFibonacci.getFibonacciSuite(depth).equals("1\n"));
+		int expected = 1;
+		Assert.assertTrue("Expected " + expected +"/"+ExoFibonacci.getFibonacciSuite(depth),ExoFibonacci.getFibonacciSuite(depth)==expected);
 	}
+	
 	@Test
-	public void test1retourne2() {
+	public void test1retourne1() {
 		int depth = 1;
-		Assert.assertTrue("Expected 1\n2/"+ExoFibonacci.getFibonacciSuite(depth),ExoFibonacci.getFibonacciSuite(depth).equals("1\n2"));
+		int expected = 1;
+		Assert.assertTrue("Expected " + expected +"/"+ExoFibonacci.getFibonacciSuite(depth),ExoFibonacci.getFibonacciSuite(depth)==expected);
+	}
+	
+	@Test
+	public void test2retourne3() {
+		int depth = 2;
+		int expected = 3;
+		Assert.assertTrue("Expected " + expected +"/"+ExoFibonacci.getFibonacciSuite(depth),ExoFibonacci.getFibonacciSuite(depth)==expected);
+	}
+
+	@Test
+	public void test3retourne6() {
+		int depth = 3;
+		int expected = 6;
+		Assert.assertTrue("Expected " + expected +"/"+ExoFibonacci.getFibonacciSuite(depth),ExoFibonacci.getFibonacciSuite(depth)==expected);
 	}
 	
 }
